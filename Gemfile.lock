@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    superspeed-cli (0.0.1)
+    superspeed-cli (0.0.2)
       execjs (= 2.5.2)
       gli (= 2.13.1)
       highline (= 1.7.2)

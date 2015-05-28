@@ -3,11 +3,10 @@ require File.join([File.dirname(__FILE__),'lib','superspeed-cli','version.rb'])
 spec = Gem::Specification.new do |s|
   s.name = 'superspeed-cli'
   s.version = SuperspeedCli::VERSION
-  s.author = 'Your Name Here'
-  s.email = 'your@email.address.com'
-  s.homepage = 'http://your.website.com'
+  s.author = 'Alexandru Keszeg'
+  s.email = 'akeszeg@gmail.com'
   s.platform = Gem::Platform::RUBY
-  s.summary = 'A description of your project'
+  s.summary = 'Cli wrapper for superspeed'
   s.files = `git ls-files`.split("
 ")
   s.require_paths << 'lib'

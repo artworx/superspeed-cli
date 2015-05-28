@@ -1,5 +1,76 @@
-= superspeed-cli
+== superspeed-cli - Cli wrapper around superspeed
 
-Generate this with
-    superspeed-cli rdoc
-After you have described your command line interface
+v0.0.1
+
+=== Global Options
+=== --help
+Show this message
+
+
+
+=== --version
+Display the program version
+
+
+
+=== Commands
+==== Command: <tt>create_log  task_id description</tt>
+Create log
+
+
+===== Options
+===== -d|--date arg
+
+Date
+
+[Default Value] 2015-05-28
+
+
+===== -h|--hours arg
+
+Hours
+
+[Default Value] 8
+
+
+===== -t|--task arg
+
+Task name
+
+[Default Value] Implementation
+
+
+==== Command: <tt>help  command</tt>
+Shows a list of commands or help for one command
+
+Gets help for the application or its commands. Can also list the commands in a way helpful to creating a bash-style completion function
+===== Options
+===== -c
+List commands one per line, to assist with shell completion
+
+
+
+==== Command: <tt>login </tt>
+Login to superspeed
+
+
+==== Command: <tt>logs </tt>
+List logs for a given month
+
+
+===== Options
+===== -d|--date arg
+
+Date
+
+[Default Value] 2015-05-28
+
+
+===== -f arg
+
+Output format(table, json)
+
+[Default Value] table
+[Must Match] ["table", "json"]
+
+
