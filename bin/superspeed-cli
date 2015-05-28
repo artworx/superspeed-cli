@@ -74,6 +74,10 @@ command :create_log do |c|
   c.default_value Date.today.to_s
   c.flag :d, :date
 
+  c.desc "End date"
+  c.default_value Date.today.to_s
+  c.flag :e, :end
+
   c.desc "Hours"
   c.default_value 8
   c.flag :h, :hours
@@ -86,9 +90,12 @@ command :create_log do |c|
     s = SuperspeedCli::App.new(Mechanize.new)
     s.load_credentials
 
-    date = Date.parse(options[:date])
+    start_date  = Date.parse(options[:date])
+    end_date  = Date.parse(options[:end])
+
     log = SuperspeedCli::Log.new({
-      date: date,
+      start_date: start_date,
+      end_date: end_date,
       task: options[:task],
       hours: options[:hours],
       task_id: args[0],

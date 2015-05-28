@@ -4,7 +4,8 @@ module SuperspeedCli
 
     DATE_FORMAT = '%d-%m-%Y'
 
-    attribute :date, Date, default: Date.today
+    attribute :start_date, Date, default: Date.today
+    attribute :end_date, Date, default: Date.today
     attribute :task, String, default: 'bot'
     attribute :task_id, Integer
     attribute :description, String
@@ -15,8 +16,8 @@ module SuperspeedCli
 
     def to_json
       JSON.generate({
-        startDate: date.strftime(DATE_FORMAT),
-        endDate: date.strftime(DATE_FORMAT),
+        startDate: start_date.strftime(DATE_FORMAT),
+        endDate: end_date.strftime(DATE_FORMAT),
         task: task,
         taskId: task_id,
         description: description,
