@@ -93,6 +93,10 @@ command :create_log do |c|
     start_date  = Date.parse(options[:date])
     end_date  = Date.parse(options[:end])
 
+    if end_date < start_date
+      end_date = start_date
+    end
+
     log = SuperspeedCli::Log.new({
       start_date: start_date,
       end_date: end_date,
