@@ -1,0 +1,5 @@
+= superspeed-cli
+
+Generate this with
+    superspeed-cli rdoc
+After you have described your command line interface
