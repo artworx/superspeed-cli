@@ -1,4 +1,10 @@
 require 'superspeed-cli/version.rb'
+require 'mechanize'
+require 'execjs'
+require 'virtus'
+require 'highline/import'
+require 'table_print'
 
-# Add requires for other files you add to your project here, so
-# you just need to require this one file in your bin file
+require 'superspeed-cli/log.rb'
+require 'superspeed-cli/app.rb'
+

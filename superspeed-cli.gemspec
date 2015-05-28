@@ -1,6 +1,6 @@
 # Ensure we require the local version and not one we might have installed already
 require File.join([File.dirname(__FILE__),'lib','superspeed-cli','version.rb'])
-spec = Gem::Specification.new do |s| 
+spec = Gem::Specification.new do |s|
   s.name = 'superspeed-cli'
   s.version = SuperspeedCli::VERSION
   s.author = 'Your Name Here'
@@ -19,5 +19,11 @@ spec = Gem::Specification.new do |s|
   s.add_development_dependency('rake')
   s.add_development_dependency('rdoc')
   s.add_development_dependency('aruba')
+  s.add_development_dependency('pry')
   s.add_runtime_dependency('gli','2.13.1')
+  s.add_runtime_dependency('mechanize','2.7.3')
+  s.add_runtime_dependency('execjs','2.5.2')
+  s.add_runtime_dependency('virtus','1.0.1')
+  s.add_runtime_dependency('highline','1.7.2')
+  s.add_runtime_dependency('table_print','1.5.3')
 end

@@ -11,54 +11,91 @@ end
 
 include GLI::App
 
-program_desc 'Describe your application here'
+program_desc 'Cli wrapper around superspeed'
 
 version SuperspeedCli::VERSION
 
 subcommand_option_handling :normal
 arguments :strict
 
-desc 'Describe some switch here'
-switch [:s,:switch]
+#desc 'Describe some switch here'
+#switch [:s,:switch]
 
-desc 'Describe some flag here'
-default_value 'the default'
-arg_name 'The name of the argument'
-flag [:f,:flagname]
+#desc 'Describe some flag here'
+#default_value 'the default'
+#arg_name 'The name of the argument'
+#flag [:f,:flagname]
 
-desc 'Describe login here'
-arg_name 'Describe arguments to login here'
+desc 'Login to superspeed'
 command :login do |c|
-  c.desc 'Describe a switch to login'
-  c.switch :s
-
-  c.desc 'Describe a flag to login'
-  c.default_value 'default'
-  c.flag :f
   c.action do |global_options,options,args|
+    s = SuperspeedCli::App.new(Mechanize.new)
+    username = ask("Enter your username:  ") do |q|
+      q.default = `whoami`.strip
+      q.echo = true
+    end
+    password = ask("Enter your password:  ") { |q| q.echo = "*" }
 
-    # Your command logic here
-     
-    # If you have any errors, just raise them
-    # raise "that command made no sense"
-
-    puts "login command ran"
+    s.login(username, password)
+    s.save_credentials
   end
 end
 
-desc 'Describe logs here'
-arg_name 'Describe arguments to logs here'
+desc 'List logs for a given month'
 command :logs do |c|
+
+  c.desc "Output format(table, json) "
+  c.default_value 'table'
+  c.flag :f, must_match: ['table', 'json']
+
+  c.desc "Date"
+  c.default_value Date.today.to_s
+  c.flag :d, :date
+
   c.action do |global_options,options,args|
-    puts "logs command ran"
+    s = SuperspeedCli::App.new(Mechanize.new)
+    s.load_credentials
+    s.load_month(Date.parse(options[:date]))
+
+    out = s.days_info
+
+    if options[:f] == 'table'
+      tp out
+    else
+      print out.to_json
+    end
   end
 end
 
-desc 'Describe create_log here'
-arg_name 'Describe arguments to create_log here'
+desc 'Create log'
+arg_name 'task_id description'
 command :create_log do |c|
+  c.desc "Date"
+  c.default_value Date.today.to_s
+  c.flag :d, :date
+
+  c.desc "Hours"
+  c.default_value 8
+  c.flag :h, :hours
+
+  c.desc "Task name"
+  c.default_value "Implementation"
+  c.flag :t, :task
+
   c.action do |global_options,options,args|
-    puts "create_log command ran"
+    s = SuperspeedCli::App.new(Mechanize.new)
+    s.load_credentials
+
+    date = Date.parse(options[:date])
+    log = SuperspeedCli::Log.new({
+      date: date,
+      task: options[:task],
+      hours: options[:hours],
+      task_id: args[0],
+      description: args[1],
+    })
+
+    s.create_log(log)
   end
 end
 
