@@ -1,6 +1,6 @@
 = superspeed-cli
 
-Describe your project here
+Cli wrapper for superspeed
 
-:include:superspeed-cli.rdoc
+[Documentation](superspeed-cli.rdoc)
 

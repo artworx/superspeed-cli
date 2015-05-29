@@ -6,6 +6,8 @@ spec = Gem::Specification.new do |s|
   s.author = 'Alexandru Keszeg'
   s.email = 'akeszeg@gmail.com'
   s.platform = Gem::Platform::RUBY
+  s.license = 'MIT'
+  s.homepage = 'https://github.com/artworx/superspeed-cli'
   s.summary = 'Cli wrapper for superspeed'
   s.files = `git ls-files`.split("
 ")
