@@ -1,6 +1,6 @@
 == superspeed-cli - Cli wrapper around superspeed
 
-v0.0.4
+v0.0.5
 
 === Global Options
 === --help
@@ -23,14 +23,14 @@ Create log
 
 Date
 
-[Default Value] 2015-05-28
+[Default Value] 2015-05-29
 
 
 ===== -e|--end arg
 
 End date
 
-[Default Value] 2015-05-28
+[Default Value] 2015-05-29
 
 
 ===== -h|--hours arg
@@ -70,7 +70,7 @@ List logs for a given month
 
 Date
 
-[Default Value] 2015-05-28
+[Default Value] 2015-05-29
 
 
 ===== -f arg
