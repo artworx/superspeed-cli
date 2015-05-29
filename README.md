@@ -1,5 +1,4 @@
-superspeed-cli
-===
+= superspeed-cli
 
 Cli wrapper for superspeed
 
