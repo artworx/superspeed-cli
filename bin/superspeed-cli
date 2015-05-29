@@ -60,7 +60,7 @@ command :logs do |c|
     out = s.days_info
 
     if options[:f] == 'table'
-      tp out
+      tp out, :id, :date, :day, :company, :companyId, :project, :projectId, :task, :taskId, :hours, :description
     else
       print out.to_json
     end
