@@ -13,7 +13,7 @@ spec = Gem::Specification.new do |s|
 ")
   s.require_paths << 'lib'
   s.has_rdoc = true
-  s.extra_rdoc_files = ['superspeed-cli.rdoc']
+  s.extra_rdoc_files = ['README.rdoc','superspeed-cli.rdoc']
   s.rdoc_options << '--title' << 'superspeed-cli' << '--main' << 'README.rdoc' << '-ri'
   s.bindir = 'bin'
   s.executables << 'superspeed-cli'
